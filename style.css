@@ -659,3 +659,19 @@ body {
   height: 100%;
   border: none;
 }
+
+.card-badges-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-lang-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+.lang-french { background: #EEF6FF; color: #1D4ED8; }
+.lang-arabic  { background: #FFF7ED; color: #92400E; }
