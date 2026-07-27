@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CGST </title>
+  <title>CGST</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,39 +11,28 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════════
-       HEADER
-  ═══════════════════════════════════════════════════ -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-
-      <!-- Logo left -->
-      <div class="logo-slot logo-left" title="Logo gauche (ex. Académie Hassan II)">
+      <div class="logo-slot logo-left" title="Logo gauche">
         <img src="logos.png" alt="Logo gauche" class="logo-img" />
       </div>
 
-      <!-- Central identity -->
       <div class="header-center">
-        <p class="header-overline">a digital library of CGST exams </p>
+        <p class="header-overline">a digital library of CGST exams</p>
         <h1 class="header-title">C.G.S.T</h1>
         <p class="header-subtitle">Concours Général des Sciences et Techniques</p>
         <p class="header-tagline">Sujet de Mathématiques &amp; Sciences</p>
       </div>
 
-      <!-- Logo right -->
-      <div class="logo-slot logo-right" title="Logo droite (ex. Ministère de l'Éducation)">
+      <div class="logo-slot logo-right" title="Logo droite">
         <img src="logos.png" alt="Logo droite" class="logo-img" />
       </div>
-
     </div>
-
-    <!-- Decorative band -->
     <div class="header-band"></div>
   </header>
 
-  <!-- ═══════════════════════════════════════════════════
-       HERO / INTRO
-  ═══════════════════════════════════════════════════ -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <p class="hero-label">Archive officielle</p>
@@ -56,9 +45,7 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       FILTERS & TABS
-  ═══════════════════════════════════════════════════ -->
+  <!-- MAIN CONTENT -->
   <main class="main-content">
     <div class="container">
 
@@ -70,12 +57,11 @@
         <button class="tab"        role="tab" aria-selected="false" data-subject="si">Sciences de l'Ingénieur</button>
       </nav>
 
-      <!-- Year filter -->
+      <!-- Filter bar -->
       <div class="filter-bar">
         <span class="filter-label">Filtrer par session :</span>
         <div class="year-pills" id="yearPills">
           <button class="pill active" data-year="all">Toutes</button>
-          <!-- Years injected by JS -->
         </div>
         <div class="search-wrap">
           <input type="text" id="searchInput" placeholder="Rechercher…" aria-label="Rechercher un sujet" />
@@ -83,14 +69,12 @@
       </div>
 
       <!-- Exam grid -->
-      <div class="exams-grid" id="examsGrid">
-        <!-- Cards injected by JS -->
-      </div>
+      <div class="exams-grid" id="examsGrid"></div>
 
       <!-- Empty state -->
       <div class="empty-state" id="emptyState" hidden>
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 022 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
           <rect x="9" y="3" width="6" height="4" rx="1"/>
           <path d="M9 12h6M9 16h4"/>
         </svg>
@@ -99,14 +83,21 @@
 
     </div>
   </main>
-  
-  
-  
+
+  <!-- PDF MODAL OVERLAY -->
   <div class="pdf-overlay" id="pdfOverlay" hidden>
     <div class="pdf-modal">
       <div class="pdf-modal-header">
         <h3 id="pdfTitle">Titre du sujet</h3>
         <div class="pdf-modal-actions">
+          <a id="pdfOpenNewTab" class="btn-download secondary" href="#" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Plein écran
+          </a>
           <a id="pdfDownload" class="btn-download" href="#" download>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/>
@@ -125,16 +116,13 @@
       </div>
     </div>
   </div>
-  <!-- ═══════════════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════════════ -->
-<footer class="site-footer">
-  <div class="container">
-    <p class="footer-copy">
-      &copy; <span id="footerYear"></span>  
-    </p>
-  </div>
-</footer>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">&copy; <span id="footerYear"></span> CGST Maroc</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

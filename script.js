@@ -1,14 +1,6 @@
 /* ═══════════════════════════════════════════════════
    CGST — Data
-   👉 C'EST ICI QUE TU AJOUTES TES SUJETS
-   Chaque sujet est un objet avec :
-     - subject : "mathematiques" | "physique" | "svt" | "si"
-     - year    : ex. "2025"
-     - title   : le titre affiché sur la carte
-     - type    : "sujet" | "corrige"
-     - file    : le chemin vers le PDF (mets tes PDFs dans le dossier /pdfs)
 ═══════════════════════════════════════════════════ */
-
 const exams = [
   {
     subject: "mathematiques",
@@ -48,23 +40,27 @@ const exams = [
 ];
 
 /* ═══════════════════════════════════════════════════
-   State
+   State & DOM Elements
 ═══════════════════════════════════════════════════ */
 let currentSubject = "mathematiques";
 let currentYear = "all";
 let currentSearch = "";
 
-/* ═══════════════════════════════════════════════════
-   DOM refs
-═══════════════════════════════════════════════════ */
-const examsGrid   = document.getElementById("examsGrid");
-const emptyState  = document.getElementById("emptyState");
-const yearPills   = document.getElementById("yearPills");
-const searchInput = document.getElementById("searchInput");
-const tabs        = document.querySelectorAll(".tab");
+const examsGrid     = document.getElementById("examsGrid");
+const emptyState    = document.getElementById("emptyState");
+const yearPills     = document.getElementById("yearPills");
+const searchInput   = document.getElementById("searchInput");
+const tabs          = document.querySelectorAll(".tab");
+
+const pdfOverlay    = document.getElementById("pdfOverlay");
+const pdfFrame      = document.getElementById("pdfFrame");
+const pdfTitle      = document.getElementById("pdfTitle");
+const pdfDownload   = document.getElementById("pdfDownload");
+const pdfOpenNewTab = document.getElementById("pdfOpenNewTab");
+const pdfClose      = document.getElementById("pdfClose");
 
 /* ═══════════════════════════════════════════════════
-   Build year pills dynamically from data
+   Build Year Pills Dynamically
 ═══════════════════════════════════════════════════ */
 function buildYearPills() {
   const years = [...new Set(exams.map(e => e.year))].sort().reverse();
@@ -82,17 +78,20 @@ function buildYearPills() {
     yearPills.appendChild(pill);
   });
 
-  // "Toutes" pill (already in HTML)
-  document.querySelector('.pill[data-year="all"]').addEventListener("click", (e) => {
-    document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
-    e.target.classList.add("active");
-    currentYear = "all";
-    renderExams();
-  });
+  // "Toutes" pill
+  const allPill = document.querySelector('.pill[data-year="all"]');
+  if (allPill) {
+    allPill.addEventListener("click", (e) => {
+      document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+      e.target.classList.add("active");
+      currentYear = "all";
+      renderExams();
+    });
+  }
 }
 
 /* ═══════════════════════════════════════════════════
-   Subject tabs
+   Subject Tabs & Search Event Listeners
 ═══════════════════════════════════════════════════ */
 tabs.forEach(tab => {
   tab.addEventListener("click", () => {
@@ -107,16 +106,13 @@ tabs.forEach(tab => {
   });
 });
 
-/* ═══════════════════════════════════════════════════
-   Search
-═══════════════════════════════════════════════════ */
 searchInput.addEventListener("input", (e) => {
   currentSearch = e.target.value.trim().toLowerCase();
   renderExams();
 });
 
 /* ═══════════════════════════════════════════════════
-   Render exam cards
+   Render Exam Cards
 ═══════════════════════════════════════════════════ */
 function renderExams() {
   const filtered = exams.filter(e => {
@@ -168,12 +164,15 @@ function renderExams() {
     `;
     examsGrid.appendChild(card);
   });
-
-  // Attach viewer click events
-  document.querySelectorAll(".btn-view").forEach(btn => {
-    btn.addEventListener("click", () => openPdfViewer(btn.dataset.file, btn.dataset.title));
-  });
 }
+
+// Global Event Delegation for "Voir" buttons
+examsGrid.addEventListener("click", (e) => {
+  const viewBtn = e.target.closest(".btn-view");
+  if (viewBtn) {
+    openPdfViewer(viewBtn.dataset.file, viewBtn.dataset.title);
+  }
+});
 
 function subjectLabel(subject) {
   const map = {
@@ -188,16 +187,11 @@ function subjectLabel(subject) {
 /* ═══════════════════════════════════════════════════
    PDF Viewer Modal
 ═══════════════════════════════════════════════════ */
-const pdfOverlay   = document.getElementById("pdfOverlay");
-const pdfFrame     = document.getElementById("pdfFrame");
-const pdfTitle     = document.getElementById("pdfTitle");
-const pdfDownload  = document.getElementById("pdfDownload");
-const pdfClose     = document.getElementById("pdfClose");
-
 function openPdfViewer(file, title) {
   pdfFrame.src = file;
   pdfTitle.textContent = title;
   pdfDownload.href = file;
+  if (pdfOpenNewTab) pdfOpenNewTab.href = file;
   pdfOverlay.hidden = false;
   document.body.style.overflow = "hidden";
 }
@@ -216,13 +210,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !pdfOverlay.hidden) closePdfViewer();
 });
 
-/* ═══════════════════════════════════════════════════
-   Footer year
-═══════════════════════════════════════════════════ */
+/* Footer Year & Init */
 document.getElementById("footerYear").textContent = new Date().getFullYear();
-
-/* ═══════════════════════════════════════════════════
-   Init
-═══════════════════════════════════════════════════ */
 buildYearPills();
 renderExams();
