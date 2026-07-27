@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CGST — Concours Général des Sciences et Techniques</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <!-- Logo left placeholder -->
+      <div class="logo-slot logo-left" title="Logo gauche (ex. Académie Hassan II)">
+        <span class="logo-placeholder-label">Logo<br>Académie</span>
+      </div>
+
+      <!-- Central identity -->
+      <div class="header-center">
+        <p class="header-overline">Royaume du Maroc — المملكة المغربية</p>
+        <h1 class="header-title">C.G.S.T</h1>
+        <p class="header-subtitle">Concours Général des Sciences et Techniques</p>
+        <p class="header-tagline">Sujet de Mathématiques &amp; Sciences</p>
+      </div>
+
+      <!-- Logo right placeholder -->
+      <div class="logo-slot logo-right" title="Logo droite (ex. Ministère de l'Éducation)">
+        <span class="logo-placeholder-label">Logo<br>Ministère</span>
+      </div>
+
+    </div>
+
+    <!-- Decorative band -->
+    <div class="header-band"></div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO / INTRO
+  ═══════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-label">Archive officielle</p>
+      <h2 class="hero-heading">Sujets et corrigés<br>du concours CGST</h2>
+      <p class="hero-body">
+        Retrouvez ici l'ensemble des sujets du Concours Général des Sciences et Techniques,
+        organisé par l'Académie Hassan II des Sciences et Techniques du Maroc.
+        Tous les sujets sont disponibles en format PDF.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FILTERS & TABS
+  ═══════════════════════════════════════════════════ -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Subject tabs -->
+      <nav class="subject-tabs" role="tablist" aria-label="Matières">
+        <button class="tab active" role="tab" aria-selected="true"  data-subject="mathematiques">Mathématiques</button>
+        <button class="tab"        role="tab" aria-selected="false" data-subject="physique">Physique-Chimie</button>
+        <button class="tab"        role="tab" aria-selected="false" data-subject="svt">S.V.T</button>
+        <button class="tab"        role="tab" aria-selected="false" data-subject="si">Sciences de l'Ingénieur</button>
+      </nav>
+
+      <!-- Year filter -->
+      <div class="filter-bar">
+        <span class="filter-label">Filtrer par session :</span>
+        <div class="year-pills" id="yearPills">
+          <button class="pill active" data-year="all">Toutes</button>
+          <!-- Years injected by JS -->
+        </div>
+        <div class="search-wrap">
+          <input type="text" id="searchInput" placeholder="Rechercher…" aria-label="Rechercher un sujet" />
+        </div>
+      </div>
+
+      <!-- Exam grid -->
+      <div class="exams-grid" id="examsGrid">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState" hidden>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+          <rect x="9" y="3" width="6" height="4" rx="1"/>
+          <path d="M9 12h6M9 16h4"/>
+        </svg>
+        <p>Aucun sujet trouvé pour cette sélection.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════
+       UPLOAD MODAL (admin use)
+  ═══════════════════════════════════════════════════ -->
+  <button class="fab" id="uploadBtn" aria-label="Ajouter un sujet" title="Ajouter un sujet">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+  </button>
+
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 id="modalTitle">Ajouter un sujet</h3>
+        <button class="modal-close" id="modalClose" aria-label="Fermer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="formSubject">Matière</label>
+          <select id="formSubject">
+            <option value="mathematiques">Mathématiques</option>
+            <option value="physique">Physique-Chimie</option>
+            <option value="svt">S.V.T</option>
+            <option value="si">Sciences de l'Ingénieur</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="formYear">Année / Session</label>
+          <input type="text" id="formYear" placeholder="ex. 2025 ou Juillet 2025" />
+        </div>
+        <div class="form-group">
+          <label for="formTitle">Titre (optionnel)</label>
+          <input type="text" id="formTitle" placeholder="ex. Sujet de Mathématiques — Session 2025" />
+        </div>
+        <div class="form-group">
+          <label for="formLink">Lien PDF</label>
+          <input type="url" id="formLink" placeholder="https://…/sujet.pdf" />
+        </div>
+        <div class="form-group">
+          <label for="formType">Type</label>
+          <select id="formType">
+            <option value="sujet">Sujet</option>
+            <option value="corrige">Corrigé</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="modalCancel">Annuler</button>
+        <button class="btn-primary" id="modalSave">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logos">
+        <div class="logo-slot logo-footer" title="Logo institution 1">
+          <span class="logo-placeholder-label">Logo</span>
+        </div>
+        <div class="logo-slot logo-footer" title="Logo institution 2">
+          <span class="logo-placeholder-label">Logo</span>
+        </div>
+        <div class="logo-slot logo-footer" title="Logo institution 3">
+          <span class="logo-placeholder-label">Logo</span>
+        </div>
+      </div>
+      <p class="footer-copy">
+        © <span id="footerYear"></span> — Concours Général des Sciences et Techniques, Maroc.
+        <br>Académie Hassan II des Sciences et Techniques.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
