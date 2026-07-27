@@ -77,16 +77,11 @@ body {
   gap: 16px;
 }
 
-/* Logo placeholder slots */
 .logo-slot {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 80px;
-  border: 1.5px dashed var(--border-strong);
-  border-radius: var(--radius);
-  background: var(--bg);
-  color: var(--text-muted);
   font-size: 11px;
   text-align: center;
   line-height: 1.4;
@@ -95,11 +90,13 @@ body {
   cursor: default;
   transition: border-color var(--transition), background var(--transition);
 }
-.logo-slot:hover {
-  border-color: var(--red);
-  background: var(--red-light);
-}
 .logo-placeholder-label { pointer-events: none; }
+
+.logo-img {
+  max-width: 130%;
+  max-height: 130%;
+  object-fit: contain;
+}
 
 /* Central identity */
 .header-center {
@@ -134,12 +131,18 @@ body {
   color: var(--text-muted);
 }
 
-/* Decorative band: Moroccan flag stripes */
 .header-band {
   height: 4px;
-  background: linear-gradient(90deg, var(--red) 50%, var(--green) 50%);
+  display: flex;
 }
-
+.header-band::before,
+.header-band::after {
+  content: '';
+  flex: 1 1 50%;
+}
+.header-band::before { background: var(--red); }
+.header-band::after  { background: var(--green); }
+ 
 /* ═══════════════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════════════ */
