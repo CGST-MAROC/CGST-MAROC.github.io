@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CGST — Concours Général des Sciences et Techniques</title>
+  <title>CGST </title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -99,7 +99,32 @@
 
     </div>
   </main>
-
+  
+  
+  
+  <div class="pdf-overlay" id="pdfOverlay" hidden>
+    <div class="pdf-modal">
+      <div class="pdf-modal-header">
+        <h3 id="pdfTitle">Titre du sujet</h3>
+        <div class="pdf-modal-actions">
+          <a id="pdfDownload" class="btn-download" href="#" download>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/>
+            </svg>
+            Télécharger
+          </a>
+          <button class="pdf-close" id="pdfClose" aria-label="Fermer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="pdf-modal-body">
+        <iframe id="pdfFrame" src="" title="Visionneuse PDF"></iframe>
+      </div>
+    </div>
+  </div>
   <!-- ═══════════════════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════════════════ -->
