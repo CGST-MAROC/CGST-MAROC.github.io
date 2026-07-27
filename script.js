@@ -227,7 +227,7 @@ const exams = [
     year: "2016",
     title: "Sujet de Physique-Chimie — Session 2016",
     type: "sujet",
-    language: "french",
+    language: "arabic",
     previewUrl:  "https://drive.google.com/file/d/12OFG7jyXrlHTvzFafo_GJSxvFz2HRqyv/preview",
     downloadUrl: "https://drive.google.com/uc?export=download&id=12OFG7jyXrlHTvzFafo_GJSxvFz2HRqyv"
   },
@@ -236,7 +236,7 @@ const exams = [
     year: "2015",
     title: "Sujet de Physique-Chimie — Session 2015",
     type: "sujet",
-    language: "french",
+    language: "arabic",
     previewUrl:  "https://drive.google.com/file/d/12OFG7jyXrlHTvzFafo_GJSxvFz2HRqyv/preview",
     downloadUrl: "https://drive.google.com/uc?export=download&id=12OFG7jyXrlHTvzFafo_GJSxvFz2HRqyv"
   },
@@ -245,7 +245,7 @@ const exams = [
     year: "2014",
     title: "Sujet de Physique-Chimie — Session 2014",
     type: "sujet",
-    language: "french",
+    language: "arabic",
     previewUrl:  "https://drive.google.com/file/d/15bo9XUs3Bj52O_9lY8Mo9LYLFg43qQyA/preview",
     downloadUrl: "https://drive.google.com/uc?export=download&id=15bo9XUs3Bj52O_9lY8Mo9LYLFg43qQyA"
   },
@@ -254,7 +254,7 @@ const exams = [
     year: "2013",
     title: "Sujet de Physique-Chimie — Session 2013",
     type: "sujet",
-    language: "french",
+    language: "arabic",
     previewUrl:  "https://drive.google.com/file/d/18RIrP8ua_fiXtEdwz55zRFjEwkoFcalX/preview",
     downloadUrl: "https://drive.google.com/uc?export=download&id=18RIrP8ua_fiXtEdwz55zRFjEwkoFcalX"
   },
@@ -263,7 +263,7 @@ const exams = [
     year: "2012",
     title: "Sujet de Physique-Chimie — Session 2012",
     type: "sujet",
-    language: "french",
+    language: "arabic",
     previewUrl:  "https://drive.google.com/file/d/1nb8zafuyttziVmvz3mNGJOKaW9utIOoz/preview",
     downloadUrl: "https://drive.google.com/uc?export=download&id=1nb8zafuyttziVmvz3mNGJOKaW9utIOoz"
   },
@@ -272,7 +272,7 @@ const exams = [
     year: "2011",
     title: "Sujet de Physique-Chimie — Session 2011",
     type: "sujet",
-    language: "french",
+    language: "arabic",
     previewUrl:  "https://drive.google.com/file/d/1zOS9aNbly6tOovX2D34alfnkHbEP0RZ0/preview",
     downloadUrl: "https://drive.google.com/uc?export=download&id=1zOS9aNbly6tOovX2D34alfnkHbEP0RZ0"
   },
@@ -281,7 +281,7 @@ const exams = [
     year: "2010",
     title: "Sujet de Physique-Chimie — Session 2010",
     type: "sujet",
-    language: "french",
+    language: "arabic",
     previewUrl:  "https://drive.google.com/file/d/1S44iSsoIbnHPm4xpm18u2DCfsZoF6IY2/preview",
     downloadUrl: "https://drive.google.com/uc?export=download&id=1S44iSsoIbnHPm4xpm18u2DCfsZoF6IY2"
   },
