@@ -451,7 +451,7 @@ function languageBadge(language) {
     return `<span class="card-lang-badge lang-french">🇫🇷 Français</span>`;
   }
   if (language === "arabic") {
-    return `<span class="card-lang-badge lang-arabic">🇲🇦 العربية</span>`;
+    return `<span class="card-lang-badge lang-arabic">العربية</span>`;
   }
   return "";
 }
