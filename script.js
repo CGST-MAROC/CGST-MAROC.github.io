@@ -403,7 +403,7 @@ function buildLanguagePills() {
 
   const languages = [
     { value: "all",    label: "Toutes" },
-    { value: "french", labe l: "🇫🇷 Français" },
+    { value: "french", label: "🇫🇷 Français" },
     { value: "arabic", label: "العربية" }
   ];
 
