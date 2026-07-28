@@ -289,12 +289,48 @@ const exams = [
   /* physique end svt now*/
   {
     subject: "svt",
-    year: "2024",
-    title: "Sujet de S.V.T — Session 2024",
+    year: "2025",
+    title: "Sujet de S.V.T — Session 2025",
     type: "sujet",
     language: "french",
-    previewUrl:  "https://drive.google.com/file/d/FILE_ID/preview",
-    downloadUrl: "https://drive.google.com/uc?export=download&id=FILE_ID"
+    previewUrl:  "https://drive.google.com/file/d/1VocZPf5aesGHwxgM_J9No1tv1a-_8TfO/preview",
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1VocZPf5aesGHwxgM_J9No1tv1a-_8TfO"
+  },
+    {
+    subject: "svt",
+    year: "2017",
+    title: "Sujet de S.V.T — Session 2017",
+    type: "sujet",
+    language: "french",
+    previewUrl:  "https://drive.google.com/file/d/1oInQQOhqrk3t21HZFV1TTn3R4GuLKi5E/preview",
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1oInQQOhqrk3t21HZFV1TTn3R4GuLKi5E"
+  },
+    {
+    subject: "svt",
+    year: "2016",
+    title: "Sujet de S.V.T — Session 2016",
+    type: "sujet",
+    language: "arabic",
+    previewUrl:  "https://drive.google.com/file/d/1WMD4glYFB74fP_8aTe_gT_LrRZHs9K7s/preview",
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1WMD4glYFB74fP_8aTe_gT_LrRZHs9K7s"
+  },
+    {
+    subject: "svt",
+    year: "2015",
+    title: "Sujet de S.V.T — Session 2015",
+    type: "sujet",
+    language: "arabic",
+    previewUrl:  "https://drive.google.com/file/d/14OrQT5yOG3MSuEBCJe7c2d2HnoaWNBNT/preview",
+    downloadUrl: "https://drive.google.com/uc?export=download&id=14OrQT5yOG3MSuEBCJe7c2d2HnoaWNBNT"
+  },
+      {
+    subject: "svt",
+    year: "2014",
+    title: "Sujet de S.V.T — Session 2014",
+    type: "sujet",
+    language: "arabic",
+    previewUrl:  "https://drive.google.com/file/d/1DDo20MvgDzhM-Imdnp94TlBz9ClIhA4r/preview",
+    downloadUrl: "https://drive.google.com/uc?export=download&id=1DDo20MvgDzhM-Imdnp94TlBz9ClIhA4r"
   },
   {
     subject: "si",
@@ -367,8 +403,8 @@ function buildLanguagePills() {
 
   const languages = [
     { value: "all",    label: "Toutes" },
-    { value: "french", label: "🇫🇷 Français" },
-    { value: "arabic", label: "🇲🇦 العربية" }
+    { value: "french", labe l: "🇫🇷 Français" },
+    { value: "arabic", label: "العربية" }
   ];
 
   languages.forEach(lang => {
